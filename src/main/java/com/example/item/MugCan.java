@@ -1,9 +1,7 @@
 package com.example.item;
 
-import net.minecraft.item.Item;
-
-public class MugCan extends Item {
+public class MugCan extends ModItem {
     public MugCan(Settings settings) {
-        super(settings);
+        super(settings, "mug_can");
     }
 }

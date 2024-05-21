@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.item.ModItem;
+import com.example.item.ModItemGroup;
 import com.example.item.MugCan;
 import com.example.item.MugEssence;
 import net.fabricmc.api.ModInitializer;
@@ -21,17 +23,6 @@ public class MugMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "mugmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static final Item MUG_ROOT_BEER = new MugCan(new Item.Settings());
-	public static final Item MUG_ESSENCE = new MugEssence(new Item.Settings());
-
-	public static final ItemGroup MUG_ITEM_GROUP = FabricItemGroup.builder()
-			.icon(() -> new ItemStack(MUG_ESSENCE))
-			.displayName(Text.literal("Mug"))
-			.entries((context, entries) -> {
-				entries.add(MUG_ROOT_BEER);
-				entries.add(MUG_ESSENCE);
-			})
-			.build();
 
 	@Override
 	public void onInitialize() {
@@ -40,8 +31,7 @@ public class MugMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "mug_can"), MUG_ROOT_BEER);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "mug_essence"), MUG_ESSENCE);
-		Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, "mug"), MUG_ITEM_GROUP);
+		ModItem.registerModItems();
+		ModItemGroup.registerItemGroups();
 	}
 }

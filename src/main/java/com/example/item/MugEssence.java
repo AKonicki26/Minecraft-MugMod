@@ -1,9 +1,7 @@
 package com.example.item;
 
-import net.minecraft.item.Item;
-
-public class MugEssence extends Item {
+public class MugEssence extends ModItem {
     public MugEssence(Settings settings) {
-        super(settings);
+        super(settings, "mug_essence");
     }
 }
