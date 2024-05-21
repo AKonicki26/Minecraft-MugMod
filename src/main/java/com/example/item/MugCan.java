@@ -1,4 +1,4 @@
-package com.example.items;
+package com.example.item;
 
 import net.minecraft.item.Item;
 
