@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.blocks.ModBlock;
 import com.example.item.ModItem;
 import com.example.item.ModItemGroup;
 import net.fabricmc.api.ModInitializer;
@@ -20,8 +21,9 @@ public class MugMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Loading MugMod Objects");
 		ModItem.registerModItems();
+		ModBlock.registerModBlocks();
 		ModItemGroup.registerItemGroups();
 	}
 }

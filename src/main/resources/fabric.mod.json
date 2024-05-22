@@ -19,7 +19,7 @@
 			"com.example.MugMod"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.example.MugModClient"
 		],
 		"fabric-datagen": [
 			"com.example.MugModDataGenerator"
