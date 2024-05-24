@@ -36,7 +36,7 @@ public class ModBlock extends Block implements ModdedObject {
     public void registerObject() {
         MugMod.LOGGER.info("Registering Block " + this.name);
         Registry.register(Registries.BLOCK, new Identifier(MugMod.MOD_ID, this.path), this);
-        ModItem BlockItem = new ModItem(new Item.Settings(), path);
+        Registry.register(Registries.ITEM, new Identifier(MugMod.MOD_ID, this.path), new BlockItem(this, new Item.Settings()));
     }
 
     @Override
