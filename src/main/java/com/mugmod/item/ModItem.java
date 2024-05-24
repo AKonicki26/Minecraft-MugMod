@@ -17,7 +17,7 @@ public class ModItem extends Item {
         registerItem(this);
     }
 
-    public static final ModItem MUG_ROOT_BEER = new MugCan(new Item.Settings());
+    public static final ModItem MUG_ROOT_BEER = new MugCan(new Item.Settings().food(FoodComponents.MugCan));
     public static final ModItem MUG_ESSENCE = new MugEssence(new Item.Settings());
 
     private static Item registerItem(ModItem item) {
