@@ -18,6 +18,9 @@
 		"main": [
 			"com.mugmod.MugMod"
 		],
+		"client": [
+			"com.mugmod.MugModClient"
+		],
 		"fabric-datagen": [
 			"com.mugmod.MugModDataGenerator"
 		]
