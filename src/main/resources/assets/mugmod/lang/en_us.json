@@ -1,5 +1,6 @@
 {
   "item.mugmod.mug_can": "Mug Can",
   "item.mugmod.mug_essence": "Mug Essence",
-  "itemgroup.mug": "Mug"
+  "itemgroup.mug": "Mug",
+  "block.mugmod.nether_mug_ore": "Nether Mug Ore"
 }

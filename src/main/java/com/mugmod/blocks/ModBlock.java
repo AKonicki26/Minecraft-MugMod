@@ -2,8 +2,7 @@ package com.mugmod.blocks;
 
 import com.mugmod.ModdedObject;
 import com.mugmod.MugMod;
-import com.mugmod.item.ModItem;
-import net.minecraft.block.AbstractBlock;
+import com.mugmod.item.ModItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -12,18 +11,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import org.apache.commons.lang3.text.WordUtils;
 
 public class ModBlock extends Block implements ModdedObject {
     ModBlock(Settings settings, String path) {
         super(settings);
         this.path = path;
-        // Sets name to path such that "block_name" becomes "Block Name"
-        this.name = WordUtils.capitalizeFully(path.replace("_", " "));
+        this.name = getNameFromPath(path);
         registerObject();
     }
 
-    public static final ModBlock MUG_ORE = new MugOre(Block.Settings.copy(Blocks.NETHER_GOLD_ORE), "mug_ore");
+    public static final ModBlock NETHER_MUG_ORE = new NetherMugOre(Block.Settings.copy(Blocks.NETHER_GOLD_ORE), "nether_mug_ore");
 
     public static void registerModBlocks() {
         MugMod.LOGGER.info("Registering Mod Items for " + MugMod.MOD_ID);
@@ -36,7 +33,7 @@ public class ModBlock extends Block implements ModdedObject {
     public void registerObject() {
         MugMod.LOGGER.info("Registering Block " + this.name);
         Registry.register(Registries.BLOCK, new Identifier(MugMod.MOD_ID, this.path), this);
-        Registry.register(Registries.ITEM, new Identifier(MugMod.MOD_ID, this.path), new BlockItem(this, new Item.Settings()));
+        ModItemGroup.MUG_ITEMS.add(Registry.register(Registries.ITEM, new Identifier(MugMod.MOD_ID, this.path), new BlockItem(this, new Item.Settings())));
     }
 
     @Override

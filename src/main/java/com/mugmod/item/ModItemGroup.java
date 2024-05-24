@@ -2,6 +2,7 @@ package com.mugmod.item;
 
 import com.mugmod.MugMod;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModItemGroup {
-    public static List<ModItem> MUG_ITEMS = new ArrayList<ModItem>();
+    public static List<Item> MUG_ITEMS = new ArrayList<Item>();
     public static final ItemGroup MUG_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(MugMod.MOD_ID, "mug"),
             FabricItemGroup.builder()
                     .displayName(Text.translatable("itemgroup.mug"))
