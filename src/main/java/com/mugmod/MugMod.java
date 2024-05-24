@@ -1,8 +1,8 @@
-package com.example;
+package com.mugmod;
 
-import com.example.blocks.ModBlock;
-import com.example.item.ModItem;
-import com.example.item.ModItemGroup;
+import com.mugmod.blocks.ModBlock;
+import com.mugmod.item.ModItem;
+import com.mugmod.item.ModItemGroup;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ public class MugMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "mugmod";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
@@ -21,9 +21,9 @@ public class MugMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Loading MugMod Objects");
+		LOGGER.info("Hello Fabric world!");
 		ModItem.registerModItems();
-		ModBlock.registerModBlocks();
 		ModItemGroup.registerItemGroups();
+		ModBlock.registerModBlocks();
 	}
 }

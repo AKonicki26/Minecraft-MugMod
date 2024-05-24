@@ -1,4 +1,4 @@
-package com.example.item;
+package com.mugmod.item;
 
 public class MugCan extends ModItem {
     public MugCan(Settings settings) {

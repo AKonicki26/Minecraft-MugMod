@@ -1,4 +1,4 @@
-package com.example.blocks;
+package com.mugmod.blocks;
 
 import net.minecraft.block.Block;
 

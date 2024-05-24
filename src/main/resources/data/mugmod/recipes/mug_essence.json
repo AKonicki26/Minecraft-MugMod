@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": [{"item": "mugmod:mug_can"}],
-  "result": {
-    "id": "mugmod:mug_essence"
-  },
-  "experience": 0.5,
-  "cookingtime": 200
-}

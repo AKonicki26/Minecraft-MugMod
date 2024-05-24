@@ -1,9 +1,8 @@
-package com.example.blocks;
+package com.mugmod.blocks;
 
-import com.example.ModdedObject;
-import com.example.MugMod;
-import com.example.item.ModItem;
-import com.example.item.ModItemGroup;
+import com.mugmod.ModdedObject;
+import com.mugmod.MugMod;
+import com.mugmod.item.ModItem;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

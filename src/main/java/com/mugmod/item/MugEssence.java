@@ -1,4 +1,4 @@
-package com.example.item;
+package com.mugmod.item;
 
 public class MugEssence extends ModItem {
     public MugEssence(Settings settings) {
