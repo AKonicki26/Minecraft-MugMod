@@ -22,7 +22,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"mugmod" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

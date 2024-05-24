@@ -3,7 +3,7 @@
 	"package": "com.example.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"MugModClient"
+		"MugModClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
