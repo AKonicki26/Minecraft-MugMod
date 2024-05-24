@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "IEI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "E": {
+      "item": "mugmod:mug_essence"
+    }
+  },
+  "result": {
+    "id": "mugmod:mug_can",
+    "count": 1
+  }
+}
