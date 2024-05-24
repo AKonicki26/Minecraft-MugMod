@@ -1,6 +1,9 @@
 {
   "type": "minecraft:smelting",
-  "ingredient": [{"item": "mugmod:mug_can"}],
+  "ingredient": [
+    {"item": "mugmod:mug_can"},
+    {"item": "mugmod:mug_essence"}
+  ],
   "result": {
     "id": "mugmod:mug_essence"
   },
