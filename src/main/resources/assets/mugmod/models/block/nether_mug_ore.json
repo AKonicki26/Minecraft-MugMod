@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "mugmod:block/nether_mug_ore"
-	}
-}

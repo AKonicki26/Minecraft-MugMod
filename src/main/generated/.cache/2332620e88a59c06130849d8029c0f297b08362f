@@ -1,0 +1,7 @@
+// 1.20.6	2024-05-24T22:46:07.5738197	Mug Mod/Model Definitions
+f49f8f3314c8cd0ea8b10478f3d91d81480f5888 assets\mugmod\models\block\nether_mug_ore.json
+d4bf2dd14ac1881c79fb7592f2d2d944dcb7ab70 assets\mugmod\blockstates\nether_mug_ore.json
+80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
+c653f0d0be23946ef0c10c75de014eca8266ec5c assets\mugmod\blockstates\block_test.json
+175c23b66890807936838d66c0b50de5d4f27a5a assets\mugmod\models\block\block_test.json
+d93a5931fda729ebf2285709fa69026694847326 assets\mugmod\models\item\mug_essence.json
