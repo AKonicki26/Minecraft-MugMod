@@ -3,6 +3,7 @@ package com.mugmod;
 import com.mugmod.blocks.ModBlock;
 import com.mugmod.item.ModItem;
 import com.mugmod.item.ModItemGroup;
+import com.mugmod.painting.ModPaintings;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -25,5 +26,6 @@ public class MugMod implements ModInitializer {
 		ModItem.registerModItems();
 		ModItemGroup.registerItemGroups();
 		ModBlock.registerModBlocks();
+		ModPaintings.registerPaintings();
 	}
 }

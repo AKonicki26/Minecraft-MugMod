@@ -2,11 +2,13 @@ package com.mugmod.item;
 
 import com.mugmod.ModdedObject;
 import com.mugmod.MugMod;
+import com.mugmod.item.custom.FalconryGloveItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import org.apache.commons.lang3.text.WordUtils;
 
 public class ModItem extends Item implements ModdedObject {
@@ -20,7 +22,11 @@ public class ModItem extends Item implements ModdedObject {
     }
 
     public static final ModItem MUG_ROOT_BEER = new MugCan(new Item.Settings().food(FoodComponents.MugCan));
-    public static final ModItem MUG_ESSENCE = new MugEssence(new Item.Settings());
+    public static final ModItem AW_ROOT_BEER = new AwCan(new Item.Settings().food(FoodComponents.AwCan));
+    public static final ModItem MUG_ESSENCE = new MugEssence(new Item.Settings().rarity(Rarity.EPIC));
+
+    public static final ModItem FALCONRY_GLOVE = new FalconryGloveItem(new Item.Settings());
+
 
     public static void registerModItems() {
         MugMod.LOGGER.info("Registering Mod Items for " + MugMod.MOD_ID);

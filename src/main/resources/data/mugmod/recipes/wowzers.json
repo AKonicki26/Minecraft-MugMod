@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "WW ",
+    "WW "
+  ],
+  "key": {
+
+    "W": {
+      "item": "mugmod:block_test"
+    }
+  },
+  "result": {
+    "id": "mugmod:block_test",
+    "count": 5
+  }
+}

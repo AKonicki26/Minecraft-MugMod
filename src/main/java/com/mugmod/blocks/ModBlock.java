@@ -5,6 +5,7 @@ import com.mugmod.MugMod;
 import com.mugmod.item.ModItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,7 @@ public class ModBlock extends Block implements ModdedObject {
         registerObject();
     }
 
+    public static final ModBlock Block_Test = new BlockTest(Block.Settings.copy(Blocks.NETHER_GOLD_ORE), "block_test");
     public static final ModBlock NETHER_MUG_ORE = new NetherMugOre(Block.Settings.copy(Blocks.NETHER_GOLD_ORE), "nether_mug_ore");
 
     public static void registerModBlocks() {
