@@ -1,12 +1,14 @@
 package com.mugmod;
 
 import com.mugmod.blocks.ModBlock;
+import com.mugmod.entity.ModEntities;
+import com.mugmod.entity.custom.MooseEntity;
 import com.mugmod.item.ModItem;
 import com.mugmod.item.ModItemGroup;
 import com.mugmod.painting.ModPaintings;
-import com.mugmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +30,9 @@ public class MugMod implements ModInitializer {
 		ModItemGroup.registerItemGroups();
 		ModBlock.registerModBlocks();
 		ModPaintings.registerPaintings();
+
+		FabricDefaultAttributeRegistry.register(ModEntities.MOOSE, MooseEntity.createMooseAttributes());
+
 
 		//ModWorldGeneration.generateModWorldGen();
 	}

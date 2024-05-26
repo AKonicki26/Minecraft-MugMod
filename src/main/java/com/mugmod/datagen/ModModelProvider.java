@@ -23,5 +23,8 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItem.MUG_ROOT_BEER, Models.GENERATED);
         itemModelGenerator.register(ModItem.MUG_ESSENCE, Models.GENERATED);
+        itemModelGenerator.register(ModItem.AW_ROOT_BEER, Models.GENERATED);
+        itemModelGenerator.register(ModItem.FALCONRY_GLOVE, Models.GENERATED);
+
     }
 }

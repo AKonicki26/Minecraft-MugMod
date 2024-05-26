@@ -1,7 +1,9 @@
-// 1.20.6	2024-05-24T22:46:07.5738197	Mug Mod/Model Definitions
-f49f8f3314c8cd0ea8b10478f3d91d81480f5888 assets\mugmod\models\block\nether_mug_ore.json
-d4bf2dd14ac1881c79fb7592f2d2d944dcb7ab70 assets\mugmod\blockstates\nether_mug_ore.json
-80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
+// 1.20.6	2024-05-25T14:00:05.0862994	Mug Mod/Model Definitions
 c653f0d0be23946ef0c10c75de014eca8266ec5c assets\mugmod\blockstates\block_test.json
+80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
 175c23b66890807936838d66c0b50de5d4f27a5a assets\mugmod\models\block\block_test.json
+d4bf2dd14ac1881c79fb7592f2d2d944dcb7ab70 assets\mugmod\blockstates\nether_mug_ore.json
+f49f8f3314c8cd0ea8b10478f3d91d81480f5888 assets\mugmod\models\block\nether_mug_ore.json
+a6f5eff5ae8d0beed2efda0daae80d7e9ba1c704 assets\mugmod\models\item\falconry_glove.json
+96cd9022dfd5f0d068e13fd4d3319c129e4a66f8 assets\mugmod\models\item\aw_can.json
 d93a5931fda729ebf2285709fa69026694847326 assets\mugmod\models\item\mug_essence.json
