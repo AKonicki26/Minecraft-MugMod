@@ -3,6 +3,7 @@ package com.mugmod.entity.custom;
 import com.mugmod.entity.ModEntities;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -70,15 +71,15 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     }
 
 
-    //Baby Size
+//    Baby Size
 
-    private static final EntityDimensions BABY_BASE_DIMENSIONS;
-
-    static {
-        BABY_BASE_DIMENSIONS = ModEntities.MOOSE.getDimensions().scaled(1F).withEyeHeight(2F);
+    public float getScaleFactor() {
+        return this.isBaby() ? 1F : 1.0F;
     }
-    public EntityDimensions getBaseDimensions(EntityPose pose) {
-        return this.isBaby() ? BABY_BASE_DIMENSIONS : super.getBaseDimensions(pose);
+
+    public float getScale() {
+        AttributeContainer attributeContainer = this.getAttributes();
+        return attributeContainer == null ? 2.0F : this.clampScale((float)attributeContainer.getValue(EntityAttributes.GENERIC_SCALE));
     }
 
     //Breeding
@@ -98,12 +99,13 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     public static DefaultAttributeContainer.Builder createMooseAttributes()
     {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.2f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,5)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 41)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 35)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.3)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,7)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.2)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,2)
-                .add(EntityAttributes.GENERIC_ARMOR,0.5f);
+                ;
     }
 
     //Goals
