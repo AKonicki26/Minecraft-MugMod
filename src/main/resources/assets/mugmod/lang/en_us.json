@@ -2,9 +2,7 @@
   "item.mugmod.mug_can": "Mug Can",
   "item.mugmod.mug_essence": "Mug Essence",
   "item.mugmod.aw_can": "A&W Can",
-
   "item.mugmod.falconry_glove": "Falconry Glove",
-
 
   "itemgroup.mug": "Mug",
 
@@ -16,5 +14,6 @@
   "painting.mugmod.bigrat.author": "Bigrat.Monster",
   "painting.mugmod.bigrat.title": "Large Monsterous Rat",
 
-  "entity.mugmod.moose": "Moose"
+  "entity.mugmod.moose": "Moose",
+  "item.mugmod.moose_spawn_egg": "Moose Spawn Egg"
 }

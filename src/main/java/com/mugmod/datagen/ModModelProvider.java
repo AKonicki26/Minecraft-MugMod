@@ -31,8 +31,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItem.AW_ROOT_BEER, Models.GENERATED);
         itemModelGenerator.register(ModItem.FALCONRY_GLOVE, Models.GENERATED);
 
-//        itemModelGenerator.register(ModItem.MOOSE_SPAWN_EGG,
-//                new Model(Optional.of(new Identifier("item/template_spawn+egg")), Optional.empty()));
+        itemModelGenerator.register(ModItem.MOOSE_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
 
     }

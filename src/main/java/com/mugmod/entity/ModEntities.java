@@ -15,5 +15,4 @@ public class ModEntities {
     public static final EntityType<MooseEntity> MOOSE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(MugMod.MOD_ID, "moose"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MooseEntity::new).dimensions(EntityDimensions.fixed(2f,2.25f)).build());
-
 }
