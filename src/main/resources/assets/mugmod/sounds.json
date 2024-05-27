@@ -1,0 +1,24 @@
+{
+  "wowzers_sound": {
+    "subtitle": "sounds.mugmod.wowzers_sound",
+    "sounds": [
+      "mugmod:wowzers_sound"
+    ]
+  },
+
+  "fuck_sound": {
+    "subtitle": "sounds.mugmod.fuck_sound",
+    "sounds": [
+      "mugmod:fuck_sound"
+    ]
+  },
+
+  "rickroll": {
+    "sounds": [
+      {
+        "name": "mugmod:rickroll",
+        "stream": true
+      }
+    ]
+  }
+}

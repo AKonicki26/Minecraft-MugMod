@@ -6,6 +6,7 @@ import com.mugmod.entity.custom.MooseEntity;
 import com.mugmod.item.ModItem;
 import com.mugmod.item.ModItemGroup;
 import com.mugmod.painting.ModPaintings;
+import com.mugmod.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -30,6 +31,7 @@ public class MugMod implements ModInitializer {
 		ModItemGroup.registerItemGroups();
 		ModBlock.registerModBlocks();
 		ModPaintings.registerPaintings();
+		ModSounds.registerSounds();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MOOSE, MooseEntity.createMooseAttributes());
 

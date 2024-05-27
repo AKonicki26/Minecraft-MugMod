@@ -74,7 +74,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
 //    Baby Size
 
     public float getScaleFactor() {
-        return this.isBaby() ? 1F : 1.0F;
+        return 1f;
     }
 
     public float getScale() {
@@ -280,6 +280,9 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     public boolean tryAttack(Entity target) {
         boolean bl = target.damage(this.getDamageSources().mobAttack(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
+
+
+
             this.applyDamageEffects(this, target);
         }
 

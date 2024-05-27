@@ -3,21 +3,15 @@ package com.mugmod.item;
 import com.mugmod.ModdedObject;
 import com.mugmod.MugMod;
 import com.mugmod.entity.ModEntities;
-import com.mugmod.item.custom.FalconryGloveItem;
-import net.fabricmc.fabric.api.item.v1.FabricItem;
+import com.mugmod.sound.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import org.apache.commons.lang3.text.WordUtils;
 
 public class ModItem extends Item implements ModdedObject {
 
@@ -33,8 +27,12 @@ public class ModItem extends Item implements ModdedObject {
     public static final ModItem AW_ROOT_BEER = new AwCan(new Item.Settings().food(FoodComponents.AwCan));
     public static final ModItem MUG_ESSENCE = new MugEssence(new Item.Settings().rarity(Rarity.EPIC));
 
-    public static final ModItem FALCONRY_GLOVE = new FalconryGloveItem(new Item.Settings());
+    public static final ModItem FALCONRY_GLOVE = new FalconryGlove(new Item.Settings().maxCount(1));
     public static final Item MOOSE_SPAWN_EGG = createSpawnEgg(ModEntities.MOOSE, "moose_spawn_egg", 0x423120, 0xcba987);
+
+    public static final Item RICKROLL_MUSIC_DISC = registerItem("rickroll_music_disc",
+            new MusicDiscItem(7, ModSounds.RICKROLL, new Item.Settings().maxCount(1).rarity(Rarity.EPIC), 122));
+
 
     public static Item createSpawnEgg(EntityType<? extends MobEntity> mob, String path, int primaryColor, int secondaryColor) {
         var egg =  new SpawnEggItem(mob, primaryColor, secondaryColor, new Item.Settings());
@@ -45,6 +43,11 @@ public class ModItem extends Item implements ModdedObject {
 
     public static void registerModItems() {
         MugMod.LOGGER.info("Registering Mod Items for " + MugMod.MOD_ID);
+    }
+
+    private static Item registerItem(String name, Item item){
+        ModItemGroup.MUG_ITEMS.add(item);
+        return Registry.register(Registries.ITEM, new Identifier(MugMod.MOD_ID, name), item);
     }
 
     public String name;

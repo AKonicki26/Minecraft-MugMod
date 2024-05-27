@@ -15,5 +15,11 @@
   "painting.mugmod.bigrat.title": "Large Monsterous Rat",
 
   "entity.mugmod.moose": "Moose",
-  "item.mugmod.moose_spawn_egg": "Moose Spawn Egg"
+  "item.mugmod.moose_spawn_egg": "Moose Spawn Egg",
+
+  "sounds.mugmod.wowzers_sound": "wowzers",
+  "sounds.mugmod.fuck_sound": "fuck",
+
+  "item.mugmod.rickroll_music_disc": "Rickroll Music Disc",
+  "item.mugmod.rickroll_music_disc.desc": "Rick Astley - Never Gonna Give You Up"
 }

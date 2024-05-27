@@ -1,10 +1,12 @@
 package com.mugmod.item;
 
 import com.mugmod.MugMod;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -13,6 +15,8 @@ import java.util.Random;
 public class AwCan extends ModItem {
     public AwCan(Settings settings) {
         super(settings, "aw_can");
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.add(this));
+
     }
 
     @Override
