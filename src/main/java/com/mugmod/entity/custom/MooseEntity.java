@@ -42,7 +42,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     private int idleAnimationTimeout = 0;
 
     public final AnimationState attackAnimationState = new AnimationState();
-
+    public int attackAnimationTimeout = 0;
 
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout <=0){
@@ -50,6 +50,16 @@ public class MooseEntity extends AnimalEntity implements Angerable {
             this.idleAnimationState.start(this.age);
         } else{
             --this.idleAnimationTimeout;
+        }
+
+        if (this.isAttacking() && this.attackAnimationTimeout <= 0) {
+            attackAnimationTimeout = 20;
+            attackAnimationState.start(this.age);
+        } else {
+            --this.attackAnimationTimeout;
+            if (!this.isAttacking()) {
+                attackAnimationState.stop();
+            }
         }
     }
 
@@ -146,7 +156,13 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         this.dataTracker.set(WARNING, warning);
     }
 
+    public void setAttacking(boolean attacking) { this.dataTracker.set(ATTACKING, attacking); }
+
+    @Override
+    public boolean isAttacking() { return (Boolean)this.dataTracker.get(ATTACKING); }
+
     private static final TrackedData<Boolean> WARNING = DataTracker.registerData(MooseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(MooseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
 
     //Custom Goals
@@ -173,17 +189,29 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     }
 
     private class AttackGoal extends MeleeAttackGoal {
+        private int attackDelay = 10;
+        private int ticksUntilNextAttack = 10;
+        private Boolean shouldCountUntilNextAttack = false;
+
         public AttackGoal() {
             super(MooseEntity.this, 1.25, true);
+        }
+
+        @Override
+        public void start() {
+            super.start();
+            attackDelay = 10;
+            ticksUntilNextAttack = 10;
         }
 
         protected void attack(LivingEntity target) {
             if (this.canAttack(target)) {
                 this.resetCooldown();
                 this.mob.tryAttack(target);
+                MooseEntity.this.setAttacking(true);
                 MooseEntity.this.setWarning(false);
             } else if (this.mob.squaredDistanceTo(target) < (double)((target.getWidth() + 3.0F) * (target.getWidth() + 3.0F))) {
-                if (this.isCooledDown()) {
+                if (this.isCooledDown()) { // Explain what isCooledDown is when I get back, BRB
                     MooseEntity.this.setWarning(false);
                     this.resetCooldown();
                 }
@@ -198,8 +226,17 @@ public class MooseEntity extends AnimalEntity implements Angerable {
 
         }
 
+        @Override
+        public void tick() {
+            super.tick();
+            if (shouldCountUntilNextAttack) {
+                ticksUntilNextAttack = Math.max(ticksUntilNextAttack - 1, 0);
+            }
+        }
+
         public void stop() {
             MooseEntity.this.setWarning(false);
+            MooseEntity.this.setAttacking(false);
             super.stop();
         }
     }
@@ -250,6 +287,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     protected void initDataTracker(DataTracker.Builder builder) {
         super.initDataTracker(builder);
         builder.add(WARNING, false);
+        builder.add(ATTACKING, false);
 }
 
     @Override
