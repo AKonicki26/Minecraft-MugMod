@@ -1,6 +1,7 @@
 package com.mugmod.entity.custom;
 
 import com.mugmod.entity.ModEntities;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.AttributeContainer;
@@ -12,6 +13,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -21,6 +23,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -53,7 +56,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         }
 
         if (this.isAttacking() && this.attackAnimationTimeout <= 0) {
-            attackAnimationTimeout = 20;
+            attackAnimationTimeout = 10;
             attackAnimationState.start(this.age);
         } else {
             --this.attackAnimationTimeout;
@@ -125,7 +128,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         this.goalSelector.add(0, new SwimGoal(this));
 
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
-        this.goalSelector.add(1, new AttackGoal());
+        this.goalSelector.add(1, new AttackGoal(this, 1D, true));
         this.goalSelector.add(1, new MooseEntity.MooseEscapeDangerGoal(this));
         this.goalSelector.add(4, new TemptGoal(this, 1.2, (stack) -> stack.isIn(ItemTags.LEAVES), false));
         this.goalSelector.add(5, new FollowParentGoal(this, 1.1));
@@ -188,30 +191,19 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         }
     }
 
+    /*
     private class AttackGoal extends MeleeAttackGoal {
-        private int attackDelay = 10;
-        private int ticksUntilNextAttack = 10;
-        private Boolean shouldCountUntilNextAttack = false;
-
         public AttackGoal() {
             super(MooseEntity.this, 1.25, true);
-        }
-
-        @Override
-        public void start() {
-            super.start();
-            attackDelay = 10;
-            ticksUntilNextAttack = 10;
         }
 
         protected void attack(LivingEntity target) {
             if (this.canAttack(target)) {
                 this.resetCooldown();
                 this.mob.tryAttack(target);
-                MooseEntity.this.setAttacking(true);
                 MooseEntity.this.setWarning(false);
             } else if (this.mob.squaredDistanceTo(target) < (double)((target.getWidth() + 3.0F) * (target.getWidth() + 3.0F))) {
-                if (this.isCooledDown()) { // Explain what isCooledDown is when I get back, BRB
+                if (this.isCooledDown()) {
                     MooseEntity.this.setWarning(false);
                     this.resetCooldown();
                 }
@@ -226,17 +218,85 @@ public class MooseEntity extends AnimalEntity implements Angerable {
 
         }
 
+        public void stop() {
+            MooseEntity.this.setWarning(false);
+            super.stop();
+        }
+    }
+     */
+
+    public class AttackGoal extends MeleeAttackGoal {
+        private final MooseEntity entity;
+        private int attackDelay = 10;
+        private int ticksUntilNextAttack = 10;
+        private boolean shouldCountTillNextAttack = false;
+
+        public AttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
+            super(mob, speed, pauseWhenMobIdle);
+            entity = ((MooseEntity) mob);
+        }
+
         @Override
-        public void tick() {
-            super.tick();
-            if (shouldCountUntilNextAttack) {
-                ticksUntilNextAttack = Math.max(ticksUntilNextAttack - 1, 0);
+        public void start() {
+            super.start();
+            attackDelay = 10;
+            ticksUntilNextAttack = 10;
+        }
+
+        @Override
+        protected void attack(LivingEntity pEnemy) {
+            if (isEnemyWithinAttackDistance(pEnemy)) {
+                shouldCountTillNextAttack = true;
+
+                if(isTimeToStartAttackAnimation()) {
+                    entity.setAttacking(true);
+                }
+
+                if(isTimeToAttack()) {
+                    this.mob.getLookControl().lookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
+                    performAttack(pEnemy);
+                }
+            } else {
+                resetAttackCooldown();
+                shouldCountTillNextAttack = false;
+                entity.setAttacking(false);
+                entity.attackAnimationTimeout = 0;
             }
         }
 
+        private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy) {
+            return this.entity.distanceTo(pEnemy) <= 2f; // TODO
+        }
+
+        protected void resetAttackCooldown() {
+            this.ticksUntilNextAttack = this.getTickCount(attackDelay * 2);
+        }
+
+        protected boolean isTimeToStartAttackAnimation() {
+            return this.ticksUntilNextAttack <= attackDelay;
+        }
+
+        protected boolean isTimeToAttack() {
+            return this.ticksUntilNextAttack <= 0;
+        }
+
+        protected void performAttack(LivingEntity pEnemy) {
+            this.resetAttackCooldown();
+            this.mob.swingHand(Hand.MAIN_HAND);
+            this.mob.tryAttack(pEnemy);
+        }
+
+        @Override
+        public void tick() {
+            super.tick();
+            if(shouldCountTillNextAttack) {
+                this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
+            }
+        }
+
+        @Override
         public void stop() {
-            MooseEntity.this.setWarning(false);
-            MooseEntity.this.setAttacking(false);
+            entity.setAttacking(false);
             super.stop();
         }
     }
@@ -319,7 +379,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         boolean bl = target.damage(this.getDamageSources().mobAttack(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
 
-
+            MooseEntity.this.setAttacking(true);
 
             this.applyDamageEffects(this, target);
         }

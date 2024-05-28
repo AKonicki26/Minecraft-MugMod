@@ -119,8 +119,8 @@ public class MooseAnimations {
                                     Transformation.Interpolations.CUBIC))).build();
 
 
-    public static final Animation MOOSE_ATTACK = Animation.Builder.create(1f).looping()
-            .addBoneAnimation("antlers",
+    public static final Animation MOOSE_ATTACK = Animation.Builder.create(0.5f).looping()
+            .addBoneAnimation("head",
                     new Transformation(Transformation.Targets.ROTATE,
                             new Keyframe(0f, AnimationHelper.createRotationalVector(17.5f, 0f, 0f),
                                     Transformation.Interpolations.CUBIC),
