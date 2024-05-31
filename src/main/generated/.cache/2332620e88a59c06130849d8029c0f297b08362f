@@ -1,5 +1,6 @@
-// 1.20.6	2024-05-26T21:38:08.7298553	Mug Mod/Model Definitions
+// 1.20.6	2024-05-30T20:46:10.3913561	Mug Mod/Model Definitions
 fdd4fdc8796fc6dd4f1d7fd2a7f532224b060794 assets\mugmod\models\item\rickroll_music_disc.json
+0eaf25dbba20912650272f07a36834493eee0a17 assets\mugmod\models\item\kazoo.json
 c653f0d0be23946ef0c10c75de014eca8266ec5c assets\mugmod\blockstates\block_test.json
 80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
 175c23b66890807936838d66c0b50de5d4f27a5a assets\mugmod\models\block\block_test.json

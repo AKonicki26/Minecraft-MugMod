@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PEP",
+    " s ",
+    " s "
+  ],
+  "key": {
+
+    "E": {
+      "item": "mugmod:mug_essence"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "mugmod:parasol",
+    "count": 1
+  }
+}

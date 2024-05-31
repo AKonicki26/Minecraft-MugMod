@@ -2,6 +2,7 @@ package com.mugmod;
 
 import com.mugmod.entity.ModEntities;
 import com.mugmod.entity.client.*;
+import com.mugmod.event.KeyInputHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -11,7 +12,9 @@ public class MugModClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.register(ModEntities.MOOSE, MooseRenderer::new);
+        KeyInputHandler.register();
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.MOOSE, MooseModel::getTexturedModelData);
+//        ModMessages.registerS2CPackets();
 
     }
 }

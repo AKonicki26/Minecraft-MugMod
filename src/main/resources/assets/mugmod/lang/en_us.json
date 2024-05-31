@@ -3,6 +3,8 @@
   "item.mugmod.mug_essence": "Mug Essence",
   "item.mugmod.aw_can": "A&W Can",
   "item.mugmod.falconry_glove": "Falconry Glove",
+  "item.mugmod.kazoo": "Kazoo",
+  "item.mugmod.parasol": "Parasol",
 
   "itemgroup.mug": "Mug",
 
@@ -21,5 +23,17 @@
   "sounds.mugmod.fuck_sound": "fuck",
 
   "item.mugmod.rickroll_music_disc": "Rickroll Music Disc",
-  "item.mugmod.rickroll_music_disc.desc": "Rick Astley - Never Gonna Give You Up"
+  "item.mugmod.rickroll_music_disc.desc": "Rick Astley - Never Gonna Give You Up",
+
+  "key.category.mugmod.mugmod": "MUG Mod",
+  "key.mugmod.test_key": "Test",
+  "key.mugmod.kazoo_note_1": "Note 1",
+  "key.mugmod.kazoo_note_2": "Note 2",
+  "key.mugmod.kazoo_note_3": "Note 3",
+  "key.mugmod.kazoo_note_4": "Note 4",
+  "key.mugmod.kazoo_note_5": "Note 5",
+  "key.mugmod.kazoo_note_6": "Note 6",
+  "key.mugmod.kazoo_note_7": "Note 7",
+  "key.mugmod.kazoo_note_8": "Note 8"
+
 }

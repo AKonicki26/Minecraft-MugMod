@@ -2,6 +2,7 @@ package com.mugmod.item;
 
 import com.mugmod.ModdedObject;
 import com.mugmod.MugMod;
+import com.mugmod.blocks.NetherMugOre;
 import com.mugmod.entity.ModEntities;
 import com.mugmod.sound.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -27,7 +28,12 @@ public class ModItem extends Item implements ModdedObject {
     public static final ModItem AW_ROOT_BEER = new AwCan(new Item.Settings().food(FoodComponents.AwCan));
     public static final ModItem MUG_ESSENCE = new MugEssence(new Item.Settings().rarity(Rarity.EPIC));
 
+    public static final ModItem KAZOO = new Kazoo(new Item.Settings().maxCount(1));
+
     public static final ModItem FALCONRY_GLOVE = new FalconryGlove(new Item.Settings().maxCount(1));
+    public static final ModItem PARASOL = new Parasol(new Item.Settings().maxCount(1).maxDamage(23));
+
+
     public static final Item MOOSE_SPAWN_EGG = createSpawnEgg(ModEntities.MOOSE, "moose_spawn_egg", 0x423120, 0xcba987);
 
     public static final Item RICKROLL_MUSIC_DISC = registerItem("rickroll_music_disc",

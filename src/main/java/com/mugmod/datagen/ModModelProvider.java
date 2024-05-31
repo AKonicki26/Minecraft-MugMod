@@ -31,6 +31,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItem.AW_ROOT_BEER, Models.GENERATED);
         itemModelGenerator.register(ModItem.FALCONRY_GLOVE, Models.GENERATED);
         itemModelGenerator.register(ModItem.RICKROLL_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItem.KAZOO, Models.GENERATED);
 
 
         itemModelGenerator.register(ModItem.MOOSE_SPAWN_EGG,

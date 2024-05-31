@@ -32,6 +32,7 @@ public class MugMod implements ModInitializer {
 		ModBlock.registerModBlocks();
 		ModPaintings.registerPaintings();
 		ModSounds.registerSounds();
+//		ModMessages.registerC2SPackets();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MOOSE, MooseEntity.createMooseAttributes());
 

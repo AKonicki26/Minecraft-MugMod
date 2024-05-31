@@ -42,7 +42,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     private int idleAnimationTimeout = 0;
 
     public final AnimationState attackAnimationState = new AnimationState();
-
+    public int attackAnimationTimeout = 10;
 
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout <=0){
@@ -50,6 +50,15 @@ public class MooseEntity extends AnimalEntity implements Angerable {
             this.idleAnimationState.start(this.age);
         } else{
             --this.idleAnimationTimeout;
+        }
+        if (this.isAttacking() && this.attackAnimationTimeout <= 0) {
+            attackAnimationTimeout = 10;
+            attackAnimationState.start(this.age);
+        } else {
+            --this.attackAnimationTimeout;
+            if (!this.isAttacking()) {
+                attackAnimationState.stop();
+            }
         }
     }
 
@@ -175,12 +184,14 @@ public class MooseEntity extends AnimalEntity implements Angerable {
     private class AttackGoal extends MeleeAttackGoal {
         public AttackGoal() {
             super(MooseEntity.this, 1.25, true);
+
         }
 
         protected void attack(LivingEntity target) {
             if (this.canAttack(target)) {
                 this.resetCooldown();
                 this.mob.tryAttack(target);
+                MooseEntity.this.setAttacking(true);
                 MooseEntity.this.setWarning(false);
             } else if (this.mob.squaredDistanceTo(target) < (double)((target.getWidth() + 3.0F) * (target.getWidth() + 3.0F))) {
                 if (this.isCooledDown()) {
@@ -192,6 +203,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
                     MooseEntity.this.setWarning(true);
                 }
             } else {
+                MooseEntity.this.setAttacking(false);
                 this.resetCooldown();
                 MooseEntity.this.setWarning(false);
             }
@@ -199,6 +211,7 @@ public class MooseEntity extends AnimalEntity implements Angerable {
         }
 
         public void stop() {
+            MooseEntity.this.setAttacking(false);
             MooseEntity.this.setWarning(false);
             super.stop();
         }
