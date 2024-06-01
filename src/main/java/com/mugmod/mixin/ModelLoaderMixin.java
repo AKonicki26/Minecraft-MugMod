@@ -25,4 +25,7 @@ public abstract class ModelLoaderMixin {
     public void addParasol(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
         this.addModel(new ModelIdentifier(MugMod.MOD_ID, "parasol_3d", "inventory"));
     }
+    public void addToxicGauntlet(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
+        this.addModel(new ModelIdentifier(MugMod.MOD_ID, "toxic_gauntlet", "inventory"));
+    }
 }

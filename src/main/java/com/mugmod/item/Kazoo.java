@@ -3,6 +3,7 @@ package com.mugmod.item;
 
 import com.mugmod.MugMod;
 import com.mugmod.sound.ModSounds;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -16,7 +17,7 @@ import net.minecraft.world.World;
 public class Kazoo extends ModItem {
     public Kazoo(Settings settings) {
         super(settings, "kazoo");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(this));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.add(this));
 
     }
 
@@ -28,4 +29,5 @@ public class Kazoo extends ModItem {
 
         return super.use(world, user, hand);
     }
+
 }

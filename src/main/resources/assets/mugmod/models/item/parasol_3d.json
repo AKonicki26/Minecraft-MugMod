@@ -1,10 +1,8 @@
 {
 	"credit": "Made with Blockbench",
-	"ambientocclusion": false,
 	"texture_size": [64, 64],
 	"textures": {
-		"2": "mugmod:item/parasol_3d",
-		"particle": "parasol"
+		"2": "mugmod:item/parasol_3d"
 	},
 	"elements": [
 		{
