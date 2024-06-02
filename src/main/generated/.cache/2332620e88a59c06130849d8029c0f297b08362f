@@ -1,12 +1,13 @@
-// 1.20.6	2024-06-01T17:59:02.9324256	Mug Mod/Model Definitions
+// 1.20.6	2024-06-02T15:11:50.3578846	Mug Mod/Model Definitions
 fdd4fdc8796fc6dd4f1d7fd2a7f532224b060794 assets\mugmod\models\item\rickroll_music_disc.json
 0eaf25dbba20912650272f07a36834493eee0a17 assets\mugmod\models\item\kazoo.json
 c653f0d0be23946ef0c10c75de014eca8266ec5c assets\mugmod\blockstates\block_test.json
-80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
+1752d310b69fd86c63d5da3e1caf9baaf2191ed3 assets\mugmod\models\item\scratch_ticket.json
 175c23b66890807936838d66c0b50de5d4f27a5a assets\mugmod\models\block\block_test.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\mugmod\models\item\moose_spawn_egg.json
+a6f5eff5ae8d0beed2efda0daae80d7e9ba1c704 assets\mugmod\models\item\falconry_glove.json
+d93a5931fda729ebf2285709fa69026694847326 assets\mugmod\models\item\mug_essence.json
+80617538cf648f9938b93e32ba44987c4e437cac assets\mugmod\models\item\mug_can.json
 d4bf2dd14ac1881c79fb7592f2d2d944dcb7ab70 assets\mugmod\blockstates\nether_mug_ore.json
 f49f8f3314c8cd0ea8b10478f3d91d81480f5888 assets\mugmod\models\block\nether_mug_ore.json
-a6f5eff5ae8d0beed2efda0daae80d7e9ba1c704 assets\mugmod\models\item\falconry_glove.json
 96cd9022dfd5f0d068e13fd4d3319c129e4a66f8 assets\mugmod\models\item\aw_can.json
-d93a5931fda729ebf2285709fa69026694847326 assets\mugmod\models\item\mug_essence.json

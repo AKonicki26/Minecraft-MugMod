@@ -29,5 +29,4 @@ public class Kazoo extends ModItem {
 
         return super.use(world, user, hand);
     }
-
 }

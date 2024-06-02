@@ -44,8 +44,6 @@ public class MugCan extends ModItem {
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1200,3));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 1200,127));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 1200,127));
-                user.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 1200,127));
-                user.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 1200,127));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1200,127));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 1200,127));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1200,127));
